@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/OpenClassrooms-Student-Center/Front-End-Fisheye#readme",
   "devDependencies": {
-    "eslint": "^8.42.0",
-    
+    "eslint": "^8.44.0"
   }
 }

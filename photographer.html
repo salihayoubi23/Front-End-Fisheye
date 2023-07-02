@@ -1,37 +1,150 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
-  </head>
-  <body>
-    <header>
-      <img src="assets/images/logo.png" class="logo" />
-    </header>
-    <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      </div>
-    </main>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
+<html lang="fr">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="Découvrez le travail du photographe en explorant sa galerie d'images, apprenez-en plus sur sa vision artistique et contactez-le pour vos projets de photographie." />
+	<title>Fisheye - photographe</title>
+	<link rel="icon" type="image/png" href="assets/favicon.png" />
+	<link rel="stylesheet" href="./css/style.css" />
+	<link rel="stylesheet" href="./css/photographer.css" />
+	<script type="module" src="scripts/pages/photographer.js" defer></script>
+	<link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet" />
+	<link
+		rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+		integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+		crossorigin="anonymous"
+		referrerpolicy="no-referrer"
+	/>
+</head>
+<body>
+	<header data-hidden>
+		<a href="index.html" aria-label="Page d'accueil">
+			<img src="assets/images/logo.png" alt="Logo Fisheye" class="logo" width="200" height="50" />
+		</a>
+	</header>
+
+	<main>
+		<section id="profile"></section>
+		<section id="filter" data-hidden></section>
+		<section id="portfolio" data-hidden></section>
+	</main>
+
+	<template id="template-photographer-profile">
+		<article class="photographer-header">
+			<div class="photographer-card__details">
+				<h1 class="photographer-card__name"></h1>
+
+				<h2 class="photographer-card__location"></h2>
+				<p class="photographer-card__tagline"></p>
 			</div>
+
+			<button id="open-form" class="contact_button" aria-haspopup="dialog" aria-expanded="false">Contactez-moi</button>
+
+			<figure class="photographer-card__img-container">
+				<img src="" alt="" class="photographer-card__img" />
+			</figure>
+		</article>
+	</template>
+
+	<template id="template-formModal">
+		<div class="modal" id="contact_modal">
+			<header class="modal__header">
+				<h2></h2>
+				<button class="modal__close" >
+					<img src="assets/icons/close-black.svg" alt="Croix" class="modal__img" width="45" height="45" />
+				</button>
+			</header>
+
+			<form action="#" method="post">
+				<div class="form-group">
+					<label for="firstname">Prénom</label>
+					<input type="text" id="firstname" name="firstname" aria-label="Renseigner votre prénom" required />
+				</div>
+
+				<div class="form-group">
+					<label for="lastname">Nom</label>
+					<input type="text" id="lastname" name="lastname" aria-label="Renseigner votre nom" required />
+				</div>
+
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input type="email" id="email" name="email" aria-label="Renseigner votre adresse email" required />
+				</div>
+
+				<div class="form-group">
+					<label for="message">Votre message</label>
+					<textarea name="message" id="message" cols="30" rows="10" aria-label="Renseigner votre message" required></textarea>
+				</div>
+
+				<button type="submit" class="contact_button">Envoyer</button>
+			</form>
 		</div>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
-  </body>
+	</template>
+
+	<template id="template-filter">
+		<div class="filter-section">
+			<label class="filter-section__label" for="select-filter">Trier par</label>
+
+			<select class="filter-section__select" name="filter" id="select-filter">
+				<option value="popularity" selected>Popularité</option>
+				<option value="date">Date</option>
+				<option value="title">Titre</option>
+			</select>
+		</div>
+	</template>
+
+	<template id="template-media">
+		<article class="media-card">
+			<div class="media-thumbnail">
+				<a href="" class="media-thumbnail__link" aria-label="Agrandir l'image">
+					<!-- <img> ou <video> -->
+				</a>
+			</div>
+
+			<div class="media-detail">
+				<h3 class="media-detail__title"></h3>
+
+				<div class="media-likes">
+					<p class="media-likes__number"></p>
+
+					<button type="button" class="media-likes__like" aria-label="Ajouter un like">
+						<img src="assets/icons/heart-regular.svg" alt="Coeur" class="media-likes__heart" width="20" height="20">
+					</button>
+				</div>
+			</div>
+		</article>
+	</template>
+
+	<template id="template-infos">
+		<div class="infos">
+			<div class="infos-likes">
+				<p class="infos-likes__number"></p>
+				<img src="assets/icons/heart-solid-black.svg" alt="Coeur noir" class="infos-likes__heart" width="17" height="17">
+			</div>
+
+			<p class="infos-price"></p>
+		</div>
+	</template>
+
+	<template id="template-lightbox">
+		<div class="lightbox">
+			<button class="lightbox__close" aria-label="Fermer la lightbox">
+				<img src="assets/icons/close.svg" alt="Croix" width="30">
+			</button>
+			<button class="lightbox__prev" aria-label="Media précédent">
+				<img src="assets/icons/chevron-left.svg" alt="Chevron tourné vers la gauche" width="30">
+			</button>
+			<div class="lightbox__container">
+				<div class="lightbox-content">
+					<!-- <img> ou <video> -->
+				</div>
+			</div>
+			<button class="lightbox__next" aria-label="Media suivant">
+				<img src="assets/icons/chevron-right.svg" alt="Chevron tourné vers la droite" width="30">
+			</button>
+		</div>
+	</template>
+</body>
 </html>

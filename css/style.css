@@ -1,50 +1,110 @@
+@import url("variable.css");
 @import url("photographer.css");
 
-body {
-    font-family: "DM Sans", sans-serif;
-    margin: 0;
+*,
+::before,
+::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
+html {
+	font-size: 62.5%;
+	font-family: "DM Sans", sans-serif;
+}
+
+body {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+a {
+	text-decoration: none;
+}
 
 header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 90px;
+	height: 90px;
+	margin-inline: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+    flex-wrap: wrap;
 }
 
 h1 {
-    color: #901C1C;
-    margin-right: 100px;
-}
-
-.logo {
-    height: 50px;
-    margin-left: 100px;
+	color: #901c1c;
+	font-size: 25px;
 }
 
 .photographer_section {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
-    margin-top: 100px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 70px;
+	margin-block: 100px;
 }
 
-.photographer_section article {
-    justify-self: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.photographer-card__link {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
 }
 
-.photographer_section article h2 {
-    color: #D3573C;
-    font-size: 36px;
+.photographer-card__img-container {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	overflow: hidden;
+	transition: transform var(--transition-time);
 }
 
-.photographer_section article img {
-    height: 200px;
-    width: 200px;
+.photographer-card__img-container {
+	min-width: 200px;
+}
+
+.photographer-card__img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	overflow-clip-margin: unset;
+	transition: transform var(--transition-time);
+}
+
+.photographer-card__img-container:hover,
+.photographer-card__img:hover {
+	transform: scale(1.07);
+}
+
+.photographer-card__name {
+	color: #d3573c;
+	font-size: 36px;
+	font-weight: normal;
+	text-align: center;
+}
+
+.photographer-card__name:hover {
+	text-decoration: underline;
+}
+
+.photographer-card__details {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 3px;
+}
+
+.photographer-card__location {
+	color: var(--color-primary);
+	font-weight: bold;
+	font-size: 1.6rem;
+}
+
+.photographer-card__tagline {
+	font-size: 1.4rem;
+}
+
+.photographer-card__price {
+	color: #757575;
+	font-size: 1.3rem;
 }
