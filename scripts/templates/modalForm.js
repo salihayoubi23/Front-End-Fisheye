@@ -23,7 +23,7 @@ export default class FormModal {
 		this.element.setAttribute('aria-modal', true);
 		this.btn.setAttribute('aria-expanded', true);
 
-		/* Récupère les éléments quoi doivent être masqués pour les outils
+		/* Récupère les éléments qui doivent être masqués pour les outils
         d'accessibilité quand la modale est ouverte */
 		const elHide = document.querySelectorAll('[data-hidden]');
 		elHide.forEach((el) => el.setAttribute('aria-hidden', true));

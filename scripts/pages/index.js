@@ -6,9 +6,10 @@ import PhotographerModel from '../Photographers/photographerModel.js';
 async function init() {
 	try {
 		const photographers = await new PhotographerAPI().getAllPhotographers();
+		console.log(photographers);
 
 		const photographersSection = document.querySelector('section.photographer_section');
-
+// affichages dynamique du template 
 		photographers.forEach((photographer) => {
 			const photographeModel = new PhotographerModel({ profile: photographer });
 			const card = PhotographerFactory.createPhotographer(photographeModel, 'card');
