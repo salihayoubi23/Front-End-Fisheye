@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/OpenClassrooms-Student-Center/Front-End-Fisheye#readme",
   "devDependencies": {
-    "eslint": "^8.44.0"
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.2"
   }
 }
