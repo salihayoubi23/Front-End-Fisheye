@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import Media from '../MediaModel.js';
+import Media from '../MediaModel.js'
 
 /**
  * @typedef {{ id: number; photographerId: number; title: string;
@@ -7,31 +7,31 @@ import Media from '../MediaModel.js';
  */
 
 export default class VideoModel extends Media {
-	#videoPath;
+	#videoPath
 
-	#type;
+	#type
 
 	/**
 	 * @param {DataVideo} data
 	 */
 	constructor(data) {
-		super(data);
-		this.#videoPath = data.video;
-		this.#type = 'video';
+		super(data)
+		this.#videoPath = data.video
+		this.#type = 'video'
 	}
 
 	get path() {
-		return `assets/portfolio/${super.photographerId}/${this.#videoPath}`;
+		return `assets/portfolio/${super.photographerId}/${this.#videoPath}`
 	}
 
 	get type() {
-		return this.#type;
+		return this.#type
 	}
 
 	createHTML() {
-		const video = document.createElement('video');
-		video.src = this.path;
-		video.classList.add('media-thumbnail__video');
-		return video;
+		const video = document.createElement('video')
+		video.src = this.path
+		video.classList.add('media-thumbnail__video')
+		return video
 	}
 }

@@ -1,14 +1,14 @@
 /* eslint-disable import/extensions */
-import API from './api.js';
+import API from './api.js'
 
 export default class PhotographerAPI extends API {
 	async getAllPhotographers() {
 		try {
-			const { photographers } = await super.fetch();
-			return photographers;
+			const { photographers } = await super.fetch()
+			return photographers
 		} catch (error) {
-			console.error(error);
-			throw new Error(`Erreur ${error.status}, aucun photographe trouvé`);
+			console.error(error)
+			throw new Error(`Erreur ${error.status}, aucun photographe trouvé`)
 		}
 	}
 
@@ -17,17 +17,17 @@ export default class PhotographerAPI extends API {
 	 */
 	async getPhotographerById(userId) {
 		try {
-			const { photographers } = await super.fetch();
-			const photographer = photographers.filter((user) => user.id === userId)[0];
+			const { photographers } = await super.fetch()
+			const photographer = photographers.filter((user) => user.id === userId)[0]
 
 			if (!photographer) {
-				window.location.href = 'index.html';
+				window.location.href = 'index.html'
 			}
 
-			return photographer;
+			return photographer
 		} catch (error) {
-			console.error(error);
-			throw new Error(`Erreur ${error.status}, le profil du photographe n'est pas disponible`);
+			console.error(error)
+			throw new Error(`Erreur ${error.status}, le profil du photographe n'est pas disponible`)
 		}
 	}
 }

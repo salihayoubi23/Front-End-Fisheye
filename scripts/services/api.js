@@ -1,16 +1,16 @@
 export default class API {
 	constructor() {
-		this.url = 'data/photographers.json';
+		this.url = 'data/photographers.json'
 	}
 
 	async fetch() {
-		const res = await fetch(this.url);
+		const res = await fetch(this.url)
 
 		if (!res.ok) {
-			throw new Error(res.status);
+			throw new Error(res.status)
 		}
 
-		const data = await res.json();
-		return data;
+		const data = await res.json()
+		return data
 	}
 }

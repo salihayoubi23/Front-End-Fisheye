@@ -9,54 +9,54 @@
  */
 
 export default class PhotographerModel {
-	#profile;
+	#profile
 
-	#portfolio;
+	#portfolio
 
 	/**
      * @param {{ profile: Profile, portfolio: Portfolio }}
      */
 	constructor({ profile, portfolio = [] }) {
-		this.#profile = profile;
-		this.#portfolio = portfolio;
+		this.#profile = profile
+		this.#portfolio = portfolio
 	}
 
 	get id() {
-		return this.#profile.id;
+		return this.#profile.id
 	}
 
 	get name() {
-		return this.#profile.name;
+		return this.#profile.name
 	}
 
 	get tagline() {
-		return this.#profile.tagline;
+		return this.#profile.tagline
 	}
 
 	get country() {
-		return this.#profile.country;
+		return this.#profile.country
 	}
 
 	get city() {
-		return this.#profile.city;
+		return this.#profile.city
 	}
 
 	get price() {
-		return this.#profile.price;
+		return this.#profile.price
 	}
 
 	get portrait() {
-		return `assets/photographers/${this.#profile.portrait}`;
+		return `assets/photographers/${this.#profile.portrait}`
 	}
 
 	get portfolio() {
-		return this.#portfolio;
+		return this.#portfolio
 	}
 
 	/**
      * @param {Portfolio} portfolio
      */
 	set setPortfolio(portfolio) {
-		this.#portfolio = portfolio;
+		this.#portfolio = portfolio
 	}
 }

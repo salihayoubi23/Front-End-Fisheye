@@ -1,67 +1,67 @@
 export default class Media {
-	#id;
+	#id
 
-	#photographerId;
+	#photographerId
 
-	#title;
+	#title
 
-	#likes;
+	#likes
 
-	#price;
+	#price
 
-	#date;
+	#date
 
-	#liked;
+	#liked
 
 	constructor(data) {
-		this.#id = data.id;
-		this.#photographerId = data.photographerId;
-		this.#title = data.title;
-		this.#likes = data.likes;
-		this.#price = data.price;
-		this.#date = data.date;
-		this.#liked = false;
+		this.#id = data.id
+		this.#photographerId = data.photographerId
+		this.#title = data.title
+		this.#likes = data.likes
+		this.#price = data.price
+		this.#date = data.date
+		this.#liked = false
 	}
 
 	get id() {
-		return this.#id;
+		return this.#id
 	}
 
 	get photographerId() {
-		return this.#photographerId;
+		return this.#photographerId
 	}
 
 	get title() {
-		return this.#title;
+		return this.#title
 	}
 
 	get date() {
-		return this.#date;
+		return this.#date
 	}
 
 	get price() {
-		return this.#price;
+		return this.#price
 	}
 
 	get likes() {
-		return this.#likes;
+		return this.#likes
 	}
 
 	get liked() {
-		return this.#liked;
+		return this.#liked
 	}
 
 	/**
      * @param {number} likes
      */
 	set setLikes(likes) {
-		this.#likes = likes;
+		this.#likes = likes
 	}
 
 	/**
      * @param {boolean} value
      */
 	set setLiked(value) {
-		this.#liked = value;
+		this.#liked = value
 	}
 }
